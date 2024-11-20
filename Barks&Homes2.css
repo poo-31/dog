@@ -1,0 +1,467 @@
+/* Reset some default styles */
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and text styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    background-color: #white;
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section Styles */
+#hero {
+    position: relative;
+    background-image: url('file:///C:/Users/HP/Downloads/WhatsApp%20Image%202024-11-20%20at%205.08.10%20PM.jpeg'); /* Your background image URL */
+    background-size: cover;
+    background-position: center;
+    background-color: light grey;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    padding: 10px;
+    overflow: hidden;
+    animation: fadeIn 2s ease-out;
+}
+
+/* Text Animations */
+#hero h2 {
+    font-size: 3em;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeInText 1.5s forwards;
+}
+
+#hero p {
+    font-size: 2rem;
+    margin-top: 30px;
+    opacity: 0;
+    animation: fadeInText 2s 0.5s forwards; /* Delay the paragraph text animation */
+}
+
+/* Button Styles */
+#hero button {
+    padding: 15px 30px;
+    background-color: #4CAF50; /* Set a green background */
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    opacity: 0;
+    animation: fadeInText 2s 1s forwards; /* Delay the button animation */
+}
+
+/* Remove the pink hover effect and use a subtle scale animation */
+#hero button:hover {
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    background-color: #45a049; /* Darker green */
+}
+
+/* Animation for Hero Section */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* About Us section styles */
+#about-us {
+    padding: 2rem;
+    background-color: white;
+    text-align: center;
+}
+
+#about-us h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#about-us p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Adoptable Dogs section styles */
+#adoptable-dogs {
+    padding: 2rem;
+    background-color: #F3CFC6;
+    text-align: center;
+}
+
+#adoptable-dogs h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.dog-card {
+    display: inline-block;
+    background-color: white;
+    width: 30%;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dog-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.dog-card h3 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.dog-card p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.dog-card button {
+    background-color: hotpink;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.dog-card button:hover {
+    background-color: pink;
+}
+
+/* Dog card container with flexbox */
+#dog-card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Individual dog card */
+.dog-card-container {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 1100px;
+ margin-top: 10px;
+}
+
+/* Container for dog images */
+.dog-images {
+    position: relative;
+    width: 50%; /* You can adjust to fit the design */
+    height: auto; /* Adjust the height as needed */
+     margin-top: 10px;
+     overflow: hidden; /* Hide parts of the image that go beyond container */
+}
+
+/* Images inside the container */
+.dog-images img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensure images cover the area without distorting */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    opacity: 0; /* Initially, make images invisible */
+    transition: opacity 1s ease-in-out; /* Smooth opacity transition */
+}
+
+/* Make images visible by using active class */
+.dog-images img.active {
+    opacity: 1;
+    left: 0; /* Move the image into view */
+}
+
+/* Swipe effect using @keyframes */
+@keyframes swipeEffect {
+    0% {
+        left: 100%; /* Start from right outside the container */
+        opacity: 0;
+    }
+    25% {
+        left: 0%; /* Slide into the container */
+        opacity: 1;
+    }
+    75% {
+        left: 0%; /* Stay visible */
+        opacity: 1;
+    }
+    100% {
+        left: -100%; /* Move out of the container to the left */
+        opacity: 0;
+    }
+}
+
+/* Apply swipe effect animation to images */
+.dog-images img:nth-child(1) {
+    animation: swipeEffect 8s infinite;
+    animation-delay: 0s; /* First image starts immediately */
+}
+
+.dog-images img:nth-child(2) {
+    animation: swipeEffect 8s infinite;
+    animation-delay: 4s; /* Second image starts after 4 seconds */
+}
+
+/* Optional: Hover zoom effect */
+.dog-images img:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+
+
+/* Dog details on the right side */
+.dog-details {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.dog-details h3 {
+    font-size: 2rem;
+    color: Red;
+    margin-bottom: 10px;
+}
+
+.dog-details p {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.dog-details button {
+    padding: 12px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dog-details button:hover {
+    background-color: #c0392b;
+}
+
+
+
+/* Adoption Process section styles */
+#adoption-process {
+    padding: 2rem;
+    background-color: white;
+    text-align: center;
+}
+
+#adoption-process ol {
+    list-style: decimal;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+} 
+#adoption-process button {
+    background-color: #2ecc71;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+#adoption-process button:hover {
+    background-color: #2ecc71;
+}
+   #volunteer{
+    padding: 2rem;
+    background-color: white;
+    text-align: center;
+}
+
+#volunteer ul {
+    list-style: decimal;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#volunteer button {
+    background-color: #2ecc71;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+#volunteer button:hover {
+    background-color: #2ecc71;
+}
+
+/* Volunteer Sign-Up Form */
+form {
+    background-color: #ffffff; /* White background for the form */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 600px; /* Limit the width of the form */
+    text-align: center;
+    margin: 0 auto; /* Center the form */
+}
+form label {
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form input[type="submit"] {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 0.8rem 3rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #27ae60;
+}
+
+form textarea {
+    resize: vertical; /* Allow the user to resize the textarea */
+}
+
+
+
+ h2 {
+        color: #333;
+    }
+
+/* Contact Us section styles */
+#contact-us {
+    padding: 2rem;
+    background-color: #F3CFC6;
+    text-align: center;
+}
+
+#contact-us h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#contact-us p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+#contact-us a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+#contact-us a:hover {
+    text-decoration: underline;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+footer .social-media a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer .social-media a:hover {
+    text-decoration: underline;
+}

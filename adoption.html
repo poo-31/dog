@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Adoption Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Dog Adoption Form</h1>
+        <form action="process_adoption.php" method="POST">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="phone" required placeholder="Enter your phone number">
+
+            <label for="dog-preference">Dog Preference</label>
+            <select id="dog-preference" name="dog_preference">
+                <option value="any">Any breed</option>
+                <option value="puppy">Puppy</option>
+                <option value="small">Small breed</option>
+                <option value="medium">Medium breed</option>
+                <option value="large">Large breed</option>
+            </select>
+
+            <label for="adoption-reason">Why do you want to adopt a dog?</label>
+            <textarea id="adoption-reason" name="adoption_reason" rows="4" required placeholder="Enter your reason for adopting a dog"></textarea>
+
+            <label for="experience">Do you have prior experience with dogs?</label>
+            <select id="experience" name="experience">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+          <button type="button" onclick="window.location.href='thank-you.html';">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>
